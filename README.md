@@ -1,4 +1,4 @@
-# Projet géolocalisation cordova
+# Projet géolocalisation Cordova
 
 # Clonez le dépôt Quick Start
 git clone 
