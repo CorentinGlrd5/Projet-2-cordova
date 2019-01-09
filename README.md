@@ -1,6 +1,13 @@
-# Projet-2-cordova
+# Projet géolocalisation cordova
 
-Pour lancer le projet, veuillez :
+# Clonez le dépôt Quick Start
+git clone 
 
-- ouvrir git bash dans votre répertoir ou ce trouve le projet
-- lancer la commande "cordova run browser" dans votre git bash
+# Allez dans le dépôt
+cd Projet-geolocalisation-cordova
+
+# Installez les dépendances 
+npm install -g cordova
+
+# Lancez l'app
+cordova platform add browser
