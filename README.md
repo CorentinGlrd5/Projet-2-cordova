@@ -1,7 +1,7 @@
 # Projet géolocalisation Cordova
 
-# Clonez le dépôt Quick Start
-git clone 
+# Clonez le dépôt
+git clone https://github.com/CorentinGlrd5/Projet-geolocalisation-cordova.git
 
 # Allez dans le dépôt
 cd Projet-geolocalisation-cordova
