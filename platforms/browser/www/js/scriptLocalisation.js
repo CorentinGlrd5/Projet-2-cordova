@@ -1,4 +1,5 @@
-
+var id = 0;
+localStorage.clear();
 
 function getLocation() {
     var x = document.getElementById("affichage");
@@ -18,22 +19,28 @@ function showPosition(position) {
     mymap.setView([position.coords.latitude, position.coords.longitude], 16)
 
     L.marker([position.coords.latitude, position.coords.longitude]).addTo(mymap)
-        .bindPopup("<b>Bienvenue !</b><br />Vous êtes ici !.").openPopup();
-    localStorage.setItem('Latitude', position.coords.latitude);
-    localStorage.setItem('Longitude', position.coords.longitude);
-    var historique = localStorage.getItem('Latitude') + localStorage.getItem('Longitude')
-    document.getElementById('historique').innerHTML = historique;
+        .bindPopup("<b>Vous êtes ici !</b>").openPopup();
 
+    var coords = {
+        lat: position.coords.latitude,
+        long: position.coords.longitude,
+    };
+    id++;
+    localStorage.setItem(id, JSON.stringify(coords));
+
+    var historique = JSON.parse(localStorage.getItem(id));
+    document.getElementById("historiqueLatitude").innerHTML = historique.lat;
+    document.getElementById("historiqueLongitude").innerHTML = historique.long;
 }
 
 function showError(error) {
     var x = document.getElementById("affichage");
     switch (error.code) {
         case error.PERMISSION_DENIED:
-            x.innerHTML = "Vous avez refusé la demande de géolocalisation. <br>Veillez activer votre géolocalisation."
+            x.innerHTML = "Vous avez refusé la demande de géolocalisation. <br>Veillez activer votre géolocalisation pour continuer."
             break;
         case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "La localisation est indisponibles."
+            x.innerHTML = "La localisation est indisponible."
             break;
         case error.TIMEOUT:
             x.innerHTML = "Votre demande d'emplacement a expiré."
